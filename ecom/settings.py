@@ -85,15 +85,22 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default':  {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'lapyphone',
+#         'PASSWORD': 'lapyphone',
+#         'HOST': 'db',
+#         'PORT': 5432,
+#     }
+# }
+
+DATABASE_URL = "postgres://postgre_lw1c_user:pb9amG4QmA8mmDxg7RHKd6QIaQmFZ0IU@dpg-ckl1c12v7m0s73d7aio0-a.oregon-postgres.render.com/postgre_lw1c"
+
+
 DATABASES = {
-    'default':  {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'lapyphone',
-        'PASSWORD': 'lapyphone',
-        'HOST': 'db',
-        'PORT': 5432,
-    }
+	"default": dj_database_url.parse(os.environ.get(DATABASE_URL))
 }
 
 
